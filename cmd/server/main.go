@@ -1,10 +1,14 @@
 package main
 
-import "net/http"
+import (
+	"go-multicmd-docker/internal/health"
+	"net/http"
+)
 
 func main() {
 	mux := http.NewServeMux()
 	mux.HandleFunc("/", indexHander)
+	mux.HandleFunc("/health", health.HealthHandler)
 	http.ListenAndServe(":8081", mux)
 }
 
