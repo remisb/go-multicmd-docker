@@ -1,15 +1,18 @@
 package main
 
 import (
+	"fmt"
 	"go-multicmd-docker/internal/health"
 	"net/http"
 )
 
 func main() {
+	port := 8081
 	mux := http.NewServeMux()
-	mux.HandleFunc("/", indexHander)
-	mux.HandleFunc("/health", health.HealthHandler)
-	http.ListenAndServe(":8081", mux)
+	mux.HandleFunc("/server", indexHander)
+	mux.HandleFunc("/server/health", health.HealthHandler)
+	fmt.Printf("Server started and accessible at localhost:/%d\n", port)
+	http.ListenAndServe(fmt.Sprintf(":%d", port), mux)
 }
 
 func indexHander(w http.ResponseWriter, r *http.Request) {
