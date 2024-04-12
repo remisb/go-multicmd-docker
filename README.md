@@ -17,9 +17,9 @@ TODO
 
 ### server
 
-To build server in a docker container from shell without `docker compose`, execute `docker build -t multicmd-server -f cmd/server/Dockerfile`.
+To build server in a docker container from shell without `docker compose`, execute `docker build -t multicmd-server -f cmd/server/Dockerfile .`.
 
-To start docker container with the server from shell withou `docker compose`, execute  `docker run -p 8080:8080  19bc`. 
+To start docker container with the server from shell withou `docker compose`, execute  `docker run --rm --name multi-server -d -p 8080:8080 multicmd-server`. 
 
 After successful server startup you should see following output in the terminal `Server started and accessible at localhost: :8080`. Now you can access following url addresses served from the server in the docker container: `http://localhost:8080/server`, `http://localhost:8080/server/health`.
 
@@ -29,9 +29,9 @@ Server application in the docker container can be configured with an environment
 
 ### admin
 
-To build admin in a docker container from shell without `docker compose`, execute `docker build -t multicmd-admin -f cmd/admin/Dockerfile`.
+To build admin in a docker container from shell without `docker compose`, execute `docker build -t multicmd-admin -f cmd/admin/Dockerfile .`.
 
-To start docker container with the server from shell withou `docker compose`, execute  `docker run -p 8081:8081  19bc`. 
+To start docker container with the server from shell withou `docker compose`, execute  `docker run --rm --name multi-admin -d -p 8081:8081 multicmd-admin`. 
 
 After successful admin startup you should see following output in the terminal `Admin started and accessible at localhost: :8081`. Now you can access following url addresses served from the server in the docker container: `http://localhost:8080/server`, `http://localhost:8080/server/health`.
 
