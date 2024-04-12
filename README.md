@@ -6,6 +6,14 @@ Minimalistic golang project with multiple executables in the cmd folder with use
 
 ### Traefik
 
+TBD
+
+TODO
+- INPROCESS add traefik container
+- INPROCESS add compose file 
+
+
+`docker compose up -d reverse-proxy`
 
 ### server
 
