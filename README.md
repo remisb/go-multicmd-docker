@@ -2,6 +2,34 @@
 
 Minimalistic golang project with multiple executables in the cmd folder with use of internal package. Project with docker compose and traefik.
 
+## Docker compose 
+
+Docker compose instructions makes bellow provided Docker sercion documentation obsolete. It left for time beeing without changes but will be updated in future.
+
+Currently to start docker compose managed service run bellow provided commands.
+
+```shell
+# start all docker composed managed services
+docker-compose up
+
+# stop all docker compose managed services
+docker-compose down 
+
+# compose file defines 4 services named as: reverse-proxy, whoami, server, admin.
+# to start only one of the specified services
+docker-compose up -d server
+docker-compose up -d admin
+docker-compose up -d whoami
+
+# to stop only one of the specified services
+docker-compose down -d server
+docker-compose down -d admin
+docker-compose down -d whoami
+
+
+```
+
+
 ## Docker
 
 ### Traefik
