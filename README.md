@@ -25,9 +25,28 @@ docker-compose up -d whoami
 docker-compose down -d server
 docker-compose down -d admin
 docker-compose down -d whoami
-
-
 ```
+
+HTTP routes available after all containers has been started
+
+```http
+# traefik dashboard (read only)
+GET http://localhost:8000
+
+GET http://whoami.docker.localhost/
+GET http://server.docker.localhost/server
+GET http://server.docker.localhost/server/health
+GET http://admin.docker.localhost/admin
+GET http://admin.docker.localhost/admin/health
+
+# BTW all url is still served
+GET http://localhost:8080/server
+GET http://localhost:8080/server/health
+GET http://localhost:8081/admin
+GET http://localhost:8081/admin/health
+```
+
+Traefik related documentation can be found at https://doc.traefik.io/traefik/routing/entrypoints/ .
 
 
 ## Docker
