@@ -12,6 +12,10 @@ Minimalistic golang project with multiple executables in the cmd folder with use
     - introduce args and environment variables to make it customizable and more flexible
 - add make file
 - review other traefix provided configuration options and use if they make sense
+- clone this project to a new project which will be based on nginx
+    - evaluete and document pros and cons of nginx
+- clone this project to a new project which will be based on HarshiCorp Consul
+    - evaluate PROS and CONS of Consul
 - add Customer UI project
 - add Admin UI project
 - the very big question how to organiza git project structure?
