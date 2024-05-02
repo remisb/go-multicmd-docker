@@ -11,11 +11,17 @@ Minimalistic golang project with multiple executables in the cmd folder with use
     - declare service dependencies
     - introduce args and environment variables to make it customizable and more flexible
 - add make file
+- add CI / CD pipeline (probably into separate project)
+- add linter (probably into separate project)
+    - https://github.com/lyft/golangci-lint - forked by lyft
+    - https://github.com/golangci/ golangci-lint - original
 - review other traefix provided configuration options and use if they make sense
-- clone this project to a new project which will be based on nginx
+- clone this project to a new git repo which will be based on nginx
     - evaluete and document pros and cons of nginx
-- clone this project to a new project which will be based on HarshiCorp Consul
+- clone this project to a new git repo which will be based on HarshiCorp Consul
     - evaluate PROS and CONS of Consul
+- clone this project to a new git repo and make it work with envoyproxy.io by lyft
+    - evaluate PROS and CONS of Envoy Proxy
 - add Customer UI project
 - add Admin UI project
 - the very big question how to organiza git project structure?
@@ -131,3 +137,37 @@ TBD - write some PROS and CONS of nginx use
 
 ### Nginx CONS
 
+## Consul
+
+### Features provided by Consul
+
+- service discovery
+    - hardcoded ip address of the service's load balancer
+    - load balancer adds an extra network hop.
+    - introduced service registry
+        - reuduces amount and need of redundant load balancers
+- configuration
+    - configs in the distributed environment
+    - shardet/distributed configuration is managed in one place and distributed to different services
+- segmentation
+    - connect - who can talk to who
+    - service graph
+    - certificate authority
+        - issue TLS certificate to services. 
+        - certificates identify services
+        - uses sidecar proxies to communicate with other services
+        - proxies uses certificate authority and establishes a connection by using a Mutual TLS
+        - proxies calls a service graph to look for permission to access other service
+
+- service call over netwok latency
+- load balancing
+- service mesh contained of 3 distinct pillars:
+    - discovery
+    - configuration
+    - segmentation
+
+## go-micro
+
+Go Micro is a framework for distributed systems development.
+
+golang based micro framework - github.com/go-micro/go-micro

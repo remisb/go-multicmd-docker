@@ -4,7 +4,9 @@ WORKDIR /app
 
 # fetch dependencies
 COPY ./go.*  ./
-RUN GOPROXY=https://proxy.golang.org go mod download
+RUN GOPROXY=https://proxy.golang.org \
+  --mount=type=cache,target=/go/pkg/mod/ \
+  go mod download -x
 
 # build
 COPY . .
